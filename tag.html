@@ -1,0 +1,54 @@
+<first-tag>
+
+  <h4>Click to increase the number by 1.</h4>
+  <div>
+    <button type="button" onclick={increaseNumber}>Click to ++</button>
+    <pre>my number = {changingNumber}</pre>
+  </div>
+  <hr />
+  <h4>Click to test if the number is even or odd</h4>
+  <div>
+    <input type="text" placeholder="Enter a number" ref="userNumber" value=""/>
+    <button type="button" onclick={checkNumber}>Check on number</button>
+    <pre>Your number is {numberValue}</pre>
+  </div>
+  <h4>Click to round to the nearest integer</h4>
+  <div>
+    <input type="text" placeholder="Enter a number" ref="getNumber" value=""/>
+    <button type="button" onclick={roundNumber}>Check on number</button>
+    <pre>Your number is {roundedNumber}</pre>
+  </div>
+  <style>
+  :scope{
+  backgroud-color: blue;
+  }
+  </style>
+
+
+  <script>
+  tag = this;
+  tag.changingNumber = 0;
+
+  tag.increaseNumber = function(e){
+    tag.changingNumber++;
+  };
+
+  tag.checkNumber = function(e){
+  var userNumber = tag.refs.userNumber.value;
+  var division = userNumber/2;
+  if(Number.isInteger(division) == true) {
+    return tag.numberValue = "even"
+  } else {
+    return tag.numberValue = "odd"
+  }
+};
+
+  tag.roundNumber = function(e){
+  var getNumber = tag.refs.getNumber.value;
+  tag.roundedNumber = Math.round(getNumber);
+  }
+
+
+
+  </script>
+</first-tag>
